@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // === titleSection ===
     Widget titleSection = Container(
       padding: const EdgeInsets.all(32),
       child: Row(
@@ -35,6 +36,18 @@ class MyApp extends StatelessWidget {
       ),
     );
 
+    // === Langkah 2: buttonSection ===
+    Color color = Theme.of(context).primaryColor;
+
+    Widget buttonSection = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly, // sejajarkan kolom
+      children: [
+        _buildButtonColumn(color, Icons.call, 'CALL'),
+        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
+        _buildButtonColumn(color, Icons.share, 'SHARE'),
+      ],
+    );
+
     return MaterialApp(
       title: 'Flutter layout: Farhan 2341760141',
       home: Scaffold(
@@ -44,27 +57,28 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: [
             titleSection,
-            // nanti di langkah selanjutnya kamu akan tambahkan buttonSection di sini
+            buttonSection, // ✅ tambahkan buttonSection ke body
           ],
         ),
       ),
     );
   }
 
+  // === Langkah 1: _buildButtonColumn ===
   Column _buildButtonColumn(Color color, IconData icon, String label) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: color), // ikon sesuai warna primer
+        Icon(icon, color: color),
         Container(
-          margin: const EdgeInsets.only(top: 8), // jarak antara ikon dan teks
+          margin: const EdgeInsets.only(top: 8),
           child: Text(
             label,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w400,
-              color: color, // warna teks sama dengan warna ikon
+              color: color,
             ),
           ),
         ),
