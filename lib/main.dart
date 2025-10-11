@@ -40,12 +40,28 @@ class MyApp extends StatelessWidget {
     Color color = Theme.of(context).primaryColor;
 
     Widget buttonSection = Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly, // sejajarkan kolom
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         _buildButtonColumn(color, Icons.call, 'CALL'),
         _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
         _buildButtonColumn(color, Icons.share, 'SHARE'),
       ],
+    );
+
+    // === Langkah 3: textSection ===
+    Widget textSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: const Text(
+        'Carilah teks di internet yang sesuai '
+        'dengan foto atau tempat wisata yang ingin '
+        'Anda tampilkan. '
+        'Tambahkan nama dan NIM Anda sebagai '
+        'identitas hasil pekerjaan Anda. '
+        'Selamat mengerjakan 🙂.\n\n'
+        'Nama: Moh Farhan Adien Alfahrezy\n'
+        'NIM: 2341760141',
+        softWrap: true,
+      ),
     );
 
     return MaterialApp(
@@ -57,7 +73,8 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: [
             titleSection,
-            buttonSection, // ✅ tambahkan buttonSection ke body
+            buttonSection,
+            textSection, // ✅ tambahkan textSection ke body
           ],
         ),
       ),
